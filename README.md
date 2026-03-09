@@ -214,7 +214,7 @@ SPL 文件采用 YAML 格式，包含五个主要部分：`@meta`、`@interface`
 
 ### 概述
 
-`spl.py` 是 SPL 编译器的核心实现，它通过本地运行的 Ollama 大模型（默认使用 `qwen2.5:9b`）将用户的自然语言描述智能转换为结构化的 SPL 代码。
+`spl.py` 是 SPL 编译器的核心实现，它通过本地运行的 Ollama 大模型（默认使用 `qwen3.5:9b`）将用户的自然语言描述智能转换为结构化的 SPL 代码。
 
 ### 核心模块
 
@@ -357,7 +357,7 @@ pip install requests pyyaml
 
 - **Python**: 3.7+
 - **Ollama**: 需要本地安装并运行 Ollama 服务
-- **模型**: 默认使用 `qwen2.5:9b`，可通过修改 `model` 参数切换
+- **模型**: 默认使用 `qwen3.5:9b`，可通过修改 `model` 参数切换
 
 **安装 Ollama：**
 ```bash
@@ -368,7 +368,7 @@ curl -fsSL https://ollama.com/install.sh | sh
 ollama serve
 
 # 拉取模型
-ollama pull qwen2.5:9b
+ollama pull qwen3.5:9b
 ```
 
 ### 配置选项
@@ -377,7 +377,7 @@ ollama pull qwen2.5:9b
 
 ```python
 # 使用 Ollama（推荐）
-compiler = SPLCompiler(use_ollama=True, model="qwen2.5:9b")
+compiler = SPLCompiler(use_ollama=True, model="qwen3.5:9b")
 
 # 不使用 Ollama（仅使用规则匹配）
 compiler = SPLCompiler(use_ollama=False)
@@ -430,9 +430,9 @@ SPL 可以扩展自定义字段和技巧。例如：
 
 **2. 模型未找到**
 ```
-Error: model 'qwen2.5:9b' not found
+Error: model 'qwen3.5:9b' not found
 ```
-**解决：** 拉取模型：`ollama pull qwen2.5:9b`
+**解决：** 拉取模型：`ollama pull qwen3.5:9b`
 
 **3. 生成的 SPL 格式不正确**
 - 检查 YAML 缩进是否正确

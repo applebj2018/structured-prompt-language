@@ -1,0 +1,76 @@
+/home/liushengli/anaconda3/bin/python /home/liushengli/PycharmProjects/spl/spl.py
+=== SPL 编译器 v2.3（简洁协议版）===
+输入您的任务描述（支持多行，空行结束）：
+我写一份电力行业如何 使用ai的技术文档
+
+[Ollama Debug] 找到模型: qwen3.5:9b
+[编译器] 分析意图中...
+[编译器] 匹配技巧: ['目标驱动']
+[编译器] 识别任务类型...
+[Ollama Debug] 请求 URL: http://localhost:11434/api/generate
+[Ollama Debug] 请求模型: qwen3.5:9b
+[Ollama Debug] 请求 prompt 前100字符: 根据以下任务描述，判断它属于哪种类型（只输出一个词）：
+可选类型：编程、写作、分析、设计、问答、通用
+描述：我写一份电力行业如何 使用ai的技术文档
+输出：...
+[Ollama Debug] 响应状态码: 200
+[Ollama Debug] 响应内容前200字符: {"model":"qwen3.5:9b","created_at":"2026-03-09T05:08:42.356145831Z","response":"写作","thinking":"Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Input: A task description (\"我写一份电力行业如何 使用 ai
+[编译器] 任务类型: 写作
+[编译器] 生成 SPL 代码...
+[Ollama Debug] 请求 URL: http://localhost:11434/api/generate
+[Ollama Debug] 请求模型: qwen3.5:9b
+[Ollama Debug] 请求 prompt 前100字符: 任务类型：写作
+任务描述：我写一份电力行业如何 使用ai的技术文档
+请为这个任务生成一个具体的角色描述，包括经验、行业背景、专长等，例如“资深Java工程师，10年经验，擅长微服务架构和安全编码”。只...
+[Ollama Debug] 响应状态码: 200
+[Ollama Debug] 响应内容前200字符: {"model":"qwen3.5:9b","created_at":"2026-03-09T05:08:54.717996208Z","response":"资深电力行业人工智能解决方案专家，10 年以上行业经验，精通智能电网、负荷预测、设备故障诊断等 AI 应用场景，具备深厚的技术文档架构与编写能力，熟悉电力安全规范与数据治理。","thinking":"Thinking Process:\n
+[Ollama Debug] 请求 URL: http://localhost:11434/api/generate
+[Ollama Debug] 请求模型: qwen3.5:9b
+[Ollama Debug] 请求 prompt 前100字符: 任务描述：我写一份电力行业如何 使用ai的技术文档
+请推断该任务需要哪些输入参数（名称和类型）。类型可以是 String, Integer, Float, Boolean, List, JSON, I...
+[Ollama Debug] 响应状态码: 200
+[Ollama Debug] 响应内容前200字符: {"model":"qwen3.5:9b","created_at":"2026-03-09T05:09:38.59849972Z","response":"{\n  \"parameters\": [\n    {\n      \"name\": \"document_title\",\n      \"type\": \"String\"\n    },\n    {\n      \"na
+[Ollama Debug] 请求 URL: http://localhost:11434/api/generate
+[Ollama Debug] 请求模型: qwen3.5:9b
+[Ollama Debug] 请求 prompt 前100字符: 任务描述：我写一份电力行业如何 使用ai的技术文档
+请将其转化为简洁、结构化的伪代码步骤。使用 Python 风格的缩进，每行描述一个主要步骤，避免过于详细的实现细节（如异常处理、数据循环等）。只输出...
+[Ollama 错误] 请求超时（60秒）
+[Ollama Debug] 请求 URL: http://localhost:11434/api/generate
+[Ollama Debug] 请求模型: qwen3.5:9b
+[Ollama Debug] 请求 prompt 前100字符: 任务类型：写作
+任务描述：我写一份电力行业如何 使用ai的技术文档
+请生成 2-3 条合理的约束条件（守卫），确保 AI 不偏离意图，例如“不得泄露敏感信息”、“必须包含错误处理”等。以 JSON 列...
+[Ollama Debug] 响应状态码: 200
+[Ollama Debug] 响应内容前200字符: {"model":"qwen3.5:9b","created_at":"2026-03-09T05:11:01.624400359Z","response":"[\"严禁泄露电网拓扑、负荷数据等敏感信息\", \"必须包含 AI 模型的容错机制与人工介入流程\", \"内容需符合电力行业数据安全及网络安全等级保护要求\"]","thinking":"Thinking Process:\n\n1.
+
+==================================================
+生成的 SPL 语言：
+'@meta':
+  role: 资深电力行业人工智能解决方案专家，10 年以上行业经验，精通智能电网、负荷预测、设备故障诊断等 AI 应用场景，具备深厚的技术文档架构与编写能力，熟悉电力安全规范与数据治理。
+  style: Professional
+  techniques:
+  - 目标驱动
+  task_type: 写作
+'@interface':
+  input:
+    document_title: String
+    industry_scope: List
+    target_audience: String
+    ai_technologies: List
+    document_length: Integer
+    language: String
+    output_format: String
+    include_charts: Boolean
+    reference_materials: JSON
+  output:
+    format: Text
+'@protocol': "def process(input):\n    # 步骤1: 理解任务需求\n    understand_task(\"我写一份电力行业如何\
+  \ 使用ai的技术文档\")\n    # 步骤2: 收集相关资料\n    research = gather_information()\n    # 步骤3:\
+  \ 生成文档结构\n    outline = create_outline()\n    # 步骤4: 撰写内容\n    content = write_content(outline,\
+  \ research)\n    return content"
+'@guards':
+- 遵循任务原始意图
+- 输出格式严格符合要求
+- 严禁泄露电网拓扑、负荷数据等敏感信息
+- 必须包含 AI 模型的容错机制与人工介入流程
+- 内容需符合电力行业数据安全及网络安全等级保护要求
